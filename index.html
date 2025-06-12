@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LookMaxx Mastery</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(to right, #4f46e5, #3b82f6);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .section {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .testimonial {
+      background-color: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .stars {
+      color: gold;
+      margin-bottom: 0.5rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    input, textarea {
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 1rem;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
+    }
+    button:hover {
+      background-color: #2563eb;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #f3f4f6;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>LookMaxx Mastery</h1>
+  <p>Your journey to the best version of yourself starts here.</p>
+</header>
+
+<section class="section">
+  <h2>Why LookMaxx?</h2>
+  <p>Looking your best isn't vanity—it's self-respect. I offer personalized 1-on-1 guidance to help you unlock your full aesthetic potential through grooming, skincare, fashion, fitness, and mindset optimization. I guarantee a personalized step-by-step plan within 24 hours.</p>
+</section>
+
+<section class="section">
+  <h2>Real Success Stories ⭐⭐⭐⭐⭐</h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"I always felt average. This guide changed how I present myself and how others treat me. I feel powerful and confident for the first time!" – Jake R.</p>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"The step-by-step breakdown was a game changer. I went from overlooked to complimented daily." – Eli M.</p>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"I got a tailored gym, skincare, and haircut plan that actually suits me. It's like having a transformation coach on call." – Marco V.</p>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"Insane value. The 24-hour response time is real. I got a custom plan that made a huge difference fast." – Daniel S.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Get Your Personal Plan</h2>
+  <form id="contactForm">
+    <input type="text" placeholder="Your Name" required />
+    <input type="email" placeholder="Your Email" required />
+    <textarea placeholder="Tell me about your goals, issues, and what you want to improve..." rows="5" required></textarea>
+    <button type="submit">Request 1-on-1 Guide</button>
+  </form>
+  <p id="confirmation" style="margin-top:1rem; color: green; display: none;">✅ Thanks! You’ll receive your step-by-step guide within 24 hours.</p>
+</section>
+
+<footer>
+  © 2025 LookMaxx Mastery — Transform Your Image. Boost Your Life.
+</footer>
+
+<script>
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    document.getElementById("confirmation").style.display = "block";
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
