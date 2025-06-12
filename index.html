@@ -1,143 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LooksMaxx Mastery</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #0d0d0d;
-      color: #e5e5e5;
-    }
-
-    header, .section {
-      padding: 2rem;
-      text-align: center;
-    }
-
-    header {
-      background: linear-gradient(to right, #330000, #660000);
-      color: #fff;
-    }
-
-    button {
-      padding: 1rem 2rem;
-      background-color: #800000;
-      color: #fff;
-      border: none;
-      font-size: 1rem;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    button:hover {
-      background-color: #a00000;
-    }
-
-    #mainContent, #paywall {
-      display: none;
-      padding: 2rem;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .guide {
-      background: #1a1a1a;
-      padding: 1.5rem;
-      border-radius: 10px;
-      color: #f0f0f0;
-      line-height: 1.6;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      background-color: #1a1a1a;
-    }
-
-    .payment-sim {
-      margin-top: 1rem;
-      font-size: 0.95rem;
-      color: #ccc;
-    }
-
-    input {
-      padding: 0.6rem;
-      margin-top: 1rem;
-      width: 100%;
-      max-width: 300px;
-      border: 1px solid #333;
-      background-color: #0d0d0d;
-      color: #fff;
-      border-radius: 5px;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <h1>Welcome to LooksMaxx Mastery</h1>
-  <p>Become the best version of yourself – inside and out.</p>
-  <button onclick="showIntro()">Start Your Journey</button>
-</header>
-
-<section id="introSection" class="section" style="display:none;">
-  <h2>How It Works</h2>
-  <p>I provide a full, step-by-step LooksMaxxing strategy personalized to your goals — skincare, grooming, fitness, fashion, mindset, and more.</p>
-  <p>To access your personalized 1-on-1 guide, there’s a one-time fee of $5. Once paid, I’ll respond within 24 hours with your custom plan.</p>
-  <button onclick="showPaywall()">Continue to Guide</button>
-</section>
-
-<section id="paywall">
-  <h2>Access the Guide</h2>
-  <p>To unlock your 1-on-1 LooksMaxx guide, please complete a $5 payment.</p>
-  <p class="payment-sim">(Note: This is a placeholder. Real payments require PayPal or Stripe integration.)</p>
-  <input type="text" placeholder="Enter fake payment code..." id="fakeCode">
-  <button onclick="unlockGuide()">Submit</button>
-</section>
-
-<section id="mainContent">
-  <h2>Your Free Starter Guide</h2>
-  <div class="guide">
-    <p><strong>Step 1:</strong> Skincare — Build a basic daily routine: cleanser (AM/PM), moisturizer, and SPF every morning.</p>
-    <p><strong>Step 2:</strong> Grooming — Clean haircut, trim facial hair, and maintain brows/nails.</p>
-    <p><strong>Step 3:</strong> Style — Wear clothes that fit your body type and colors that complement your skin tone.</p>
-    <p><strong>Step 4:</strong> Fitness — Start with bodyweight exercises, add strength training and daily cardio.</p>
-    <p><strong>Step 5:</strong> Confidence — Improve posture, eye contact, and voice tone. Track habits and stay consistent.</p>
-    <p>For your full 1-on-1 LooksMaxxing transformation plan, request your personalized guide today.</p>
-  </div>
-</section>
-
-<footer>
-  © 2025 LooksMaxx Mastery | Your Looks, Your Power
-</footer>
+<style>
+  /* Add fade transition */
+  .section {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: opacity 0.5s ease, max-height 0.5s ease;
+  }
+  .section.active {
+    opacity: 1;
+    max-height: 1000px; /* enough to show content */
+  }
+  button {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  button:hover {
+    background-color: #a00000;
+    transform: scale(1.05);
+  }
+</style>
 
 <script>
+  function showSection(idToShow) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(section => {
+      section.classList.remove('active');
+    });
+    // Show selected section
+    document.getElementById(idToShow).classList.add('active');
+    // Scroll smoothly
+    document.getElementById(idToShow).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // Then replace your old functions:
   function showIntro() {
-    document.getElementById('introSection').style.display = 'block';
-    window.scrollTo(0, document.body.scrollHeight);
+    showSection('introSection');
   }
-
   function showPaywall() {
-    document.getElementById('paywall').style.display = 'block';
-    window.scrollTo(0, document.body.scrollHeight);
+    showSection('paywall');
   }
-
   function unlockGuide() {
     const code = document.getElementById('fakeCode').value.trim();
     if (code.length > 0) {
-      document.getElementById('mainContent').style.display = 'block';
-      document.getElementById('paywall').style.display = 'none';
-      window.scrollTo(0, document.body.scrollHeight);
+      showSection('mainContent');
     } else {
       alert('Please enter a code to unlock the guide.');
     }
   }
 </script>
-
-</body>
-</html>
